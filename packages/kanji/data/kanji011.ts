@@ -162,7 +162,7 @@ export const KanjiData11: Kanji[] = [
     kana: "いまさら",
     questionType: "read",
   },
-  { id: "11-31", sentence: "百年の歳月を経る。", kanji: "経", kana: "へる", questionType: "read" },
+  { id: "11-31", sentence: "百年の歳月を経る。", kanji: "経", kana: "へ", questionType: "read" },
   {
     id: "11-32",
     sentence: "地区の巡回バス。",
@@ -181,7 +181,7 @@ export const KanjiData11: Kanji[] = [
     id: "11-34",
     sentence: "島を縦断する。",
     kanji: "縦断",
-    kana: "おうだん",
+    kana: "じゅうだん",
     questionType: "read",
   },
   {
