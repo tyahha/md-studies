@@ -177,7 +177,7 @@ export const FirstWordsData: WordDataType[] = [
   {id: "T_1_154", english: "I have an apple for a snack.", japanese: "私はおやつにリンゴを持っています。"},
   {id: "T_1_155", english: "I don't like apples.", japanese: "私はりんごが好きではありません。"},
   {id: "T_1_156", english: "I eat five bananas for a snack.", japanese: "私はおやつにバナナを５個食べます。"},
-  {id: "T_1_157", english: "Do you often climb mountains? / Yes, I do. / No, I don't.", japanese: "あなたは山登りをしますか？ / はい、します。 / いいえ、しません。"},
+  {id: "T_1_157", english: "Do you often climb mountains? / Yes, I do. / No, I don't.", japanese: "あなたはよく山登りをしますか？ / はい、します。 / いいえ、しません。"},
   {id: "T_1_158", english: "When do you climb? / On weekends.", japanese: "あなたはいつ山登りをしますか？ / 週末です。"},
   {id: "T_1_159", english: "I play tennis every day.", japanese: "私は毎日テニスをします。"},
   {id: "T_1_160", english: "I sometimes play the piano.", japanese: "私はときどきピアノを弾きます。"},
