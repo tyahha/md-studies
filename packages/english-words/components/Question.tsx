@@ -145,16 +145,16 @@ export const Question = ({ data, onPrev, onNext, onReturnTitle }: Props) => {
         >
           英語の発音
         </button>
-        <div className={`bg-gray-100 text-center py-10 my-4 relative`}>
+        <div className={`bg-gray-100 text-center py-2 my-4 relative`}>
           <p
-            className={`text-6xl  ${questionType === "J2E" && "text-red-600"}`}
+            className={`text-4xl  ${questionType === "J2E" && "text-red-600"}`}
           >
             {questionType !== "E2J" && status === "thinking"
               ? "\u200b"
               : data.english}
           </p>
           <p
-            className={`text-6xl mt-2 ${
+            className={`text-4xl mt-2 ${
               questionType === "E2J" && "text-red-600"
             }`}
           >
@@ -163,7 +163,7 @@ export const Question = ({ data, onPrev, onNext, onReturnTitle }: Props) => {
               : data.japanese}
           </p>
         </div>
-        <div className="flex justify-center mt-4 bg-white">
+        <div className="flex justify-center mt-2 bg-white">
           <DrawArea />
         </div>
         <div className="relative overflow-x-auto shadow-md mt-8 w-fit m-auto min-w-8">

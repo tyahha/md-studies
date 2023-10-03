@@ -12,7 +12,7 @@ export const DrawArea = () => {
     const canvas = new Canvas(canvasRef.current, {
       isDrawingMode: true,
       width: wrapperRef.current?.clientWidth || 0,
-      height: 200,
+      height: 300,
     })
     setCanvas(canvas)
 
