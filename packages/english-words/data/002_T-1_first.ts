@@ -190,7 +190,7 @@ export const FirstWordsData: WordDataType[] = [
   {id: "T_1_167", english: "When do you run? / I run after school. / I run before dinner.", japanese: "あなたはいつ走りますか？ / 私は放課後に走ります。 / 私は夕食前に走ります。"},
   {id: "T_1_168", english: "Where do you run? / I run in the park.", japanese: "あなたはどこで走りますか？ / 私は公園で走ります。"},
   {id: "T_1_169", english: "I can cook curry.", japanese: "私はカレーを作れます。"},
-  {id: "T_1_170", english: "I can't cook steak.", japanese: "私はカレーを作れません。"},
+  {id: "T_1_170", english: "I can't cook steak.", japanese: "私はステーキを作れません。"},
   {id: "T_1_171", english: "You can cook curry.", japanese: "あなたはカレーを作れます。"},
   {id: "T_1_172", english: "Can you cook curry? / Yes, I can. / No, I can't.", japanese: "あなたはカレーを作れますか？ / はい、作れます。 / いいえ、つくれません。"},
   {id: "T_1_173", english: "What can you cook? / I can cook carry.", japanese: "あなたは何か(料理を)作れますか? / 私はカレーを作れます。"},
