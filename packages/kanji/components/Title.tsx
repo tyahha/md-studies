@@ -12,7 +12,6 @@ import {
   loadSettings,
   saveSettings,
 } from "@/logics/settings"
-import {WordsData} from "english-words/data/wordsData";
 
 const pickWrongs = (day: dayjs.Dayjs) => {
   const histories = loadHistories()
