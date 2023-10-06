@@ -92,6 +92,7 @@ export const TitleView = () => {
       yesterdayWrongs,
       noStudies,
       twoDaysAgoWrongs,
+      daysAgoWrongs,
       todayStudyCount,
     },
     setState,
@@ -102,6 +103,7 @@ export const TitleView = () => {
     yesterdayWrongs: WordDataType[]
     noStudies: WordDataType[]
     twoDaysAgoWrongs: WordDataType[]
+    daysAgoWrongs: WordDataType[]
     todayStudyCount: Record<QuestionType, number>
   }>({
     indexForContinue: 0,
@@ -110,6 +112,7 @@ export const TitleView = () => {
     noStudies: [],
     yesterdayWrongs: [],
     twoDaysAgoWrongs: [],
+    daysAgoWrongs: [],
     todayStudyCount: {
       J2E: 0,
       E2J: 0,
@@ -120,7 +123,8 @@ export const TitleView = () => {
     const id = loadLastAnsweredId(questionType) || WordsData[0].id
     const foundIndex = WordsData.findIndex((k) => k.id === id)
     const continueIndex = foundIndex == null ? 0 : foundIndex + 1
-    setState({
+    setState((prev) => ({
+      ...prev,
       indexForContinue: WordsData.length <= continueIndex ? 0 : continueIndex,
       recentWrongs: pickRecentWrongs(dayjs(), questionType),
       todayWrongs: pickWrongs(dayjs(), questionType),
@@ -128,8 +132,18 @@ export const TitleView = () => {
       yesterdayWrongs: pickWrongs(dayjs().subtract(1, "day"), questionType),
       twoDaysAgoWrongs: pickWrongs(dayjs().subtract(2, "day"), questionType),
       todayStudyCount: getTodayStudyCount(),
-    })
+    }))
   }, [questionType])
+
+
+  const [daysAgo, setDaysAgo] = useState(3)
+  useEffect(() => {
+    setState((prev) => ({
+        ...prev,
+       daysAgoWrongs: pickWrongs(dayjs().subtract(daysAgo, "days"), questionType)
+    }))
+  }, [daysAgo, questionType])
+
   const filteredWordsData = useMemo(() => {
     if (!isOnlyWrongs) return WordsData
 
@@ -343,6 +357,32 @@ export const TitleView = () => {
           }`}
         >
           一昨日間違えたところ
+        </button>
+      </div>
+      <div className="flex justify-center gap-1 mt-4">
+        <input
+            className={"text-center text-2xl"}
+            value={daysAgo}
+            type={"number"}
+            min={3}
+            onChange={(e) => {
+              const n = Number(e.target.value)
+              if (isNaN(n) || n < 3) return
+              setDaysAgo(n)
+            }}
+        />
+        <button
+            disabled={daysAgoWrongs.length === 0}
+            onClick={() => {
+              setQuestions(daysAgoWrongs)
+              setIndex(0)
+              setMode("review")
+            }}
+            className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
+                daysAgoWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
+            }`}
+        >
+          日前に間違えた露頃
         </button>
       </div>
     </main>

@@ -12,6 +12,7 @@ import {
   loadSettings,
   saveSettings,
 } from "@/logics/settings"
+import {WordsData} from "english-words/data/wordsData";
 
 const pickWrongs = (day: dayjs.Dayjs) => {
   const histories = loadHistories()
@@ -143,6 +144,12 @@ export const TitleView = () => {
       todayStudyCount: getTodayStudyCount(),
     })
   }, [])
+
+  const [daysAgo, setDaysAgo] = useState(3)
+  const daysAgoWrongs = useMemo(() => {
+    return pickWrongs(dayjs().subtract(daysAgo, "days"))
+  }, [daysAgo])
+
   const filteredKanjiData = useMemo(() => {
     if (!isOnlyWrongs) return KanjiData
 
@@ -322,6 +329,33 @@ export const TitleView = () => {
           一昨日間違えたところ
         </button>
       </div>
+      <div className="flex justify-center gap-1 mt-4">
+        <input
+            className={"text-center text-2xl"}
+            value={daysAgo}
+            type={"number"}
+            min={3}
+            onChange={(e) => {
+              const n = Number(e.target.value)
+              if (isNaN(n) || n < 3) return
+              setDaysAgo(n)
+            }}
+        />
+        <button
+            disabled={daysAgoWrongs.length === 0}
+            onClick={() => {
+              setQuestions(daysAgoWrongs)
+              setIndex(0)
+              setMode("review")
+            }}
+            className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
+                daysAgoWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
+            }`}
+        >
+          日前に間違えた露頃
+        </button>
+      </div>
+
     </main>
   )
 }
