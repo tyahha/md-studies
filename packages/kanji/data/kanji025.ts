@@ -41,7 +41,7 @@ export const KanjiData25: Kanji[] = [
   {id: "25-33",sentence: "チームを率いる。",kanji:"率いる",kana:"ひきいる",questionType:"read"},
   {id: "25-34",sentence: "成分を凝縮する。",kanji:"凝縮",kana:"ぎょうしゅく",questionType:"read"},
   {id: "25-35",sentence: "肩が凝る。",kanji:"凝る",kana:"こる",questionType:"read"},
-  {id: "25-36",sentence: "火山が火を噴く",kanji:"噴く",kana:"ふくらむ",questionType:"read"},
+  {id: "25-36",sentence: "火山が火を噴く",kanji:"噴く",kana:"ふく",questionType:"read"},
   {id: "25-37",sentence: "空気が膨張する。",kanji:"膨張",kana:"ぼうちょう",questionType:"read"},
   {id: "25-38",sentence: "くじを引く。",kanji:"引く",kana:"ひく",questionType:"write"},
   {id: "25-39",sentence: "ギターを弾く。",kanji:"弾く",kana:"ひく",questionType:"write"},
