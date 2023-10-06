@@ -108,6 +108,7 @@ export const TitleView = () => {
       noStudies,
       yesterdayWrongs,
       twoDaysAgoWrongs,
+      daysAgoWrongs,
       todayStudyCount,
     },
     setState,
@@ -118,6 +119,7 @@ export const TitleView = () => {
     noStudies: Kanji[]
     yesterdayWrongs: Kanji[]
     twoDaysAgoWrongs: Kanji[]
+    daysAgoWrongs: Kanji[]
     todayStudyCount: number
   }>({
     indexForContinue: 0,
@@ -126,13 +128,15 @@ export const TitleView = () => {
     noStudies: [],
     yesterdayWrongs: [],
     twoDaysAgoWrongs: [],
+    daysAgoWrongs: [],
     todayStudyCount: 0,
   })
   useEffect(() => {
     const id = loadLastAnsweredId() || KanjiData[0].id
     const foundIndex = KanjiData.findIndex((k) => k.id === id)
     const continueIndex = foundIndex == null ? 0 : foundIndex + 1
-    setState({
+    setState((prev) => ({
+      ...prev,
       indexForContinue: KanjiData.length <= continueIndex ? 0 : continueIndex,
       recentWrongs: pickRecentWrongs(dayjs()),
       todayWrongs: pickWrongs(dayjs()),
@@ -140,12 +144,15 @@ export const TitleView = () => {
       yesterdayWrongs: pickWrongs(dayjs().subtract(1, "day")),
       twoDaysAgoWrongs: pickWrongs(dayjs().subtract(2, "day")),
       todayStudyCount: getTodayStudyCount(),
-    })
+    }))
   }, [])
 
   const [daysAgo, setDaysAgo] = useState(3)
-  const daysAgoWrongs = useMemo(() => {
-    return pickWrongs(dayjs().subtract(daysAgo, "days"))
+  useEffect(() => {
+    setState((prev) => ({
+      ...prev,
+      daysAgoWrongs: pickWrongs(dayjs().subtract(daysAgo, "days")),
+    }))
   }, [daysAgo])
 
   const filteredKanjiData = useMemo(() => {
@@ -353,7 +360,6 @@ export const TitleView = () => {
           日前に間違えた露頃
         </button>
       </div>
-
     </main>
   )
 }
