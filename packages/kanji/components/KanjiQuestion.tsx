@@ -4,9 +4,9 @@ import { getTodayStudyCount, saveHistory, saveHistoryAtReview } from "@/logics/h
 import { useAppContext } from "@/context"
 import { Histories } from "@/components/Histories"
 import { DrawArea } from "@/components/DrawArea"
-import { Shippori_Mincho_B1 } from "@next/font/google"
+import { BIZ_UDMincho as KanjiFont } from "@next/font/google"
 
-const font = Shippori_Mincho_B1({ weight: "400", subsets: ["latin"] })
+const font = KanjiFont({ weight: "400", subsets: ["latin"] })
 
 type Props = {
   data: Kanji
