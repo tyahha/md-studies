@@ -1,6 +1,12 @@
 import { useEffect, useRef } from "react"
 import { Canvas } from "fabric"
-import { clearCanvas, redoCanvas, setCanvas, undoCanvas } from "@/logics/canvas"
+import {
+  cleanCanvas,
+  clearCanvas,
+  redoCanvas,
+  setCanvas,
+  undoCanvas,
+} from "@/logics/canvas"
 
 export const DrawArea = () => {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -18,13 +24,13 @@ export const DrawArea = () => {
 
     if (!wrapperRef.current) return
     const resizeObserver = new ResizeObserver(() => {
-      canvas.setWidth(wrapperRef.current?.clientWidth || window.innerWidth)
+      canvas.width = wrapperRef.current?.clientWidth || window.innerWidth
     })
     resizeObserver.observe(wrapperRef.current)
 
     return () => {
       resizeObserver.disconnect()
-      clearCanvas()
+      cleanCanvas()
     }
   }, [])
 
