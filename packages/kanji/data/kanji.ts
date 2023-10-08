@@ -36,6 +36,10 @@ import {KanjiDataB6_1, KanjiDataB6_1Category} from "@/data/kanjiB006_1";
 import {KanjiData25, KanjiData25Category} from "@/data/kanji025";
 import {KanjiData26, KanjiData26Category} from "@/data/kanji026";
 import {KanjiDataB5_2, KanjiDataB5_2Category} from "@/data/kanjiB005_2";
+import {KanjiData27, KanjiData27Category} from "@/data/kanji027";
+import {KanjiData28, KanjiData28Category} from "@/data/kanji028";
+import {KanjiDataB7_1, KanjiDataB7_1Category} from "@/data/kanjiB007_1";
+import {KanjiDataB7_2, KanjiDataB7_2Category} from "@/data/kanjiB007_2";
 
 type QuestionType = "read" | "write"
 
@@ -86,6 +90,10 @@ export const KanjiDataCategories = [
   KanjiDataB6_2Category,
   KanjiData25Category,
   KanjiData26Category,
+  KanjiData27Category,
+  KanjiData28Category,
+  KanjiDataB7_1Category,
+  KanjiDataB7_2Category,
 ]
 
 export const KanjiData: Kanji[] = [
@@ -127,4 +135,8 @@ export const KanjiData: Kanji[] = [
   ...KanjiDataB6_2,
   ...KanjiData25,
   ...KanjiData26,
+  ...KanjiData27,
+  ...KanjiData28,
+  ...KanjiDataB7_1,
+  ...KanjiDataB7_2,
 ]
