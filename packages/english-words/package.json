@@ -1,8 +1,6 @@
 {
   "name": "english-words",
-  "version": "1.0.0",
   "private": true,
-  "license": "ISC",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
