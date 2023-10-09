@@ -1,9 +1,13 @@
 import { Kanji, KanjiDataCategories } from "@/data/kanji"
 import { useEffect, useMemo, useState } from "react"
-import { getTodayStudyCount, saveHistory, saveHistoryAtReview } from "@/logics/history"
+import {
+  getTodayStudyCount,
+  saveHistory,
+  saveHistoryAtReview,
+} from "@/logics/history"
 import { useAppContext } from "@/context"
 import { Histories } from "@/components/Histories"
-import { DrawArea } from "@/components/DrawArea"
+import { DrawArea } from "common/components/DrawArea"
 import { BIZ_UDMincho as KanjiFont } from "@next/font/google"
 
 const font = KanjiFont({ weight: "400", subsets: ["latin"] })
@@ -14,7 +18,12 @@ type Props = {
   onNext: () => void
   onReturnTitle: () => void
 }
-export const KanjiQuestion = ({ data, onPrev, onNext, onReturnTitle }: Props) => {
+export const KanjiQuestion = ({
+  data,
+  onPrev,
+  onNext,
+  onReturnTitle,
+}: Props) => {
   const { mode } = useAppContext()
 
   const [s1, s2] = data.sentence.split(data.kanji)
@@ -45,7 +54,10 @@ export const KanjiQuestion = ({ data, onPrev, onNext, onReturnTitle }: Props) =>
   }
 
   const { questions } = useAppContext()
-  const index = useMemo(() => questions.findIndex((q) => q.id === data.id), [data, questions])
+  const index = useMemo(
+    () => questions.findIndex((q) => q.id === data.id),
+    [data, questions],
+  )
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -84,7 +96,9 @@ export const KanjiQuestion = ({ data, onPrev, onNext, onReturnTitle }: Props) =>
 
   return (
     <main
-      className={`flex justify-center  ${categoryIndex % 2 === 0 ? "bg-blue-100" : "bg-red-100"}`}
+      className={`flex justify-center  ${
+        categoryIndex % 2 === 0 ? "bg-blue-100" : "bg-red-100"
+      }`}
     >
       <section className="w-11/12 text-center">
         <div className="mt-4 flex gap-8 justify-center">
@@ -116,7 +130,9 @@ export const KanjiQuestion = ({ data, onPrev, onNext, onReturnTitle }: Props) =>
         <p className="text-5xl text-center mt-4">
           {category.idPrefix}. {category.title}
         </p>
-        <p className="text-xl text-center mt-4">今日勉強した漢字数：{todayStudyCount}</p>
+        <p className="text-xl text-center mt-4">
+          今日勉強した漢字数：{todayStudyCount}
+        </p>
         <h2 className="text-center text-6xl my-4">
           問題{data.id}({index + 1}/{questions.length})
         </h2>
@@ -153,11 +169,13 @@ export const KanjiQuestion = ({ data, onPrev, onNext, onReturnTitle }: Props) =>
         </div>
         <p className={`bg-gray-100 text-center py-16 my-4 ${font.className}`}>
           <span className="text-6xl">{s1} </span>
-          <span className="font-bold underline text-6xl underline-offset-[8px]">{word}</span>
+          <span className="font-bold underline text-6xl underline-offset-[8px]">
+            {word}
+          </span>
           <span className="text-6xl"> {s2}</span>
         </p>
         <div className="flex justify-center mt-4 bg-white">
-          <DrawArea />
+          <DrawArea height={200} />
         </div>
         <div className="relative overflow-x-auto shadow-md mt-8 w-fit m-auto min-w-8">
           <Histories kanji={data} />

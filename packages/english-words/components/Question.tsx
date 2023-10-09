@@ -6,7 +6,7 @@ import {
 } from "@/logics/history"
 import { useAppContext } from "@/context"
 import { Histories } from "@/components/Histories"
-import { DrawArea } from "@/components/DrawArea"
+import { DrawArea } from "common/components/DrawArea"
 import { WordDataType } from "@/data/wordsData"
 
 type Props = {
@@ -164,7 +164,7 @@ export const Question = ({ data, onPrev, onNext, onReturnTitle }: Props) => {
           </p>
         </div>
         <div className="flex justify-center mt-2 bg-white">
-          <DrawArea />
+          <DrawArea height={300} />
         </div>
         <div className="relative overflow-x-auto shadow-md mt-8 w-fit m-auto min-w-8">
           <Histories data={data} />

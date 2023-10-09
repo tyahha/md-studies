@@ -1,6 +1,6 @@
 import { Question } from "@/components/Question"
 import { useAppContext } from "@/context"
-import { clearCanvasWithHistory } from "@/logics/canvas"
+import { clearCanvasWithHistory } from "common/logics/canvas"
 
 export const QuestionView = () => {
   const { index, setMode, setIndex, questions } = useAppContext()

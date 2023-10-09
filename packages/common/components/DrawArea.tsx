@@ -6,9 +6,12 @@ import {
   redoCanvas,
   setCanvas,
   undoCanvas,
-} from "@/logics/canvas"
+} from "common/logics/canvas"
 
-export const DrawArea = () => {
+type Props = {
+  height: number
+}
+export const DrawArea = ({ height }: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -18,14 +21,13 @@ export const DrawArea = () => {
     const canvas = new Canvas(canvasRef.current, {
       isDrawingMode: true,
       width: wrapperRef.current?.clientWidth || 0,
-      height: 200,
+      height,
     })
     setCanvas(canvas)
 
     if (!wrapperRef.current) return
     const resizeObserver = new ResizeObserver(() => {
       canvas.width = wrapperRef.current?.clientWidth || window.innerWidth
-      // canvas.setWidth(wrapperRef.current?.clientWidth || window.innerWidth)
     })
     resizeObserver.observe(wrapperRef.current)
 
@@ -33,7 +35,7 @@ export const DrawArea = () => {
       resizeObserver.disconnect()
       cleanCanvas()
     }
-  }, [])
+  }, [height])
 
   return (
     <div className="relative w-full" ref={wrapperRef}>
