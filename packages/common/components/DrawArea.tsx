@@ -22,7 +22,6 @@ export const DrawArea = ({ height }: Props) => {
       isDrawingMode: true,
       width: wrapperRef.current?.clientWidth || 0,
       height,
-      enablePointerEvents: true,
     })
     setCanvas(canvas)
 
