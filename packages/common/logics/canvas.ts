@@ -11,7 +11,7 @@ export const setCanvas = (c: Canvas) => {
   canvas = c
 
   const brash = new PencilBrush(canvas)
-  brash.width = 3
+  brash.width = 2
   brash.color = "#666"
   canvas.freeDrawingBrush = brash
 
@@ -29,7 +29,10 @@ export const cleanCanvas = () => {
 const addCanvasHistory = () => {
   if (!canvas || isLockHistory) return
   historyIndex++
-  canvasHistory = [...canvasHistory.slice(0, historyIndex), JSON.stringify(canvas)]
+  canvasHistory = [
+    ...canvasHistory.slice(0, historyIndex),
+    JSON.stringify(canvas),
+  ]
 }
 
 export const clearCanvas = () => {
