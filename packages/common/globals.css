@@ -12,4 +12,10 @@
   .btn.blue {
     @apply bg-blue-500 enabled:hover:bg-blue-700;
   }
+  .btn.red {
+    @apply bg-red-500 enabled:hover:bg-red-700;
+  }
+  .link-btn {
+    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
+  }
 }

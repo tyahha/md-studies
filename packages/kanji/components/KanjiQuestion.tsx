@@ -103,7 +103,7 @@ export const KanjiQuestion = ({
       <section className="w-11/12 text-center">
         <div className="mt-4 flex gap-8 justify-center">
           <button
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            className="link-btn"
             onClick={() => {
               setStatus("thinking")
               onPrev()
@@ -111,14 +111,11 @@ export const KanjiQuestion = ({
           >
             ＜＜＜前に戻る
           </button>
-          <button
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-            onClick={onReturnTitle}
-          >
+          <button className="link-btn" onClick={onReturnTitle}>
             タイトルに戻る
           </button>
           <button
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            className="link-btn"
             onClick={() => {
               setStatus("thinking")
               onNext()
@@ -140,27 +137,21 @@ export const KanjiQuestion = ({
           <div className="flex gap-4 justify-center mt-4">
             <button
               disabled={status !== "result"}
-              className={`bg-green-500 text-white font-bold py-4 w-1/2 text-4xl rounded ${
-                status === "result" ? "hover:bg-green-700" : "opacity-50"
-              }`}
+              className={`btn green w-1/2 text-4xl`}
               onClick={() => saveResult(true)}
             >
               ◎あたった
             </button>
             <button
               disabled={status !== "result"}
-              className={`bg-red-500 text-white font-bold py-4 w-1/2 text-4xl rounded ${
-                status === "result" ? "hover:bg-red-700" : "opacity-50"
-              }`}
+              className={`btn red w-1/2 text-4xl`}
               onClick={() => saveResult(false)}
             >
               ✖はずれた
             </button>
           </div>
           <button
-            className={`bg-blue-500 text-white font-bold py-4 rounded text-4xl w-1/2 mt-4 ${
-              status === "thinking" ? "hover:bg-blue-700" : "opacity-50"
-            }`}
+            className={`btn blue text-4xl w-1/2 mt-4`}
             onClick={() => setStatus("result")}
             disabled={status !== "thinking"}
           >
