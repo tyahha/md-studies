@@ -1,3 +1,4 @@
+import "common/globals.css"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
   description: "漢字の勉強のためのWebアプリ",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="ja">
       <body className={inter.className}>{children}</body>

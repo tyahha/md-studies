@@ -203,9 +203,7 @@ export const TitleView = () => {
             setMode("question")
           }}
           disabled={filteredKanjiData.length <= 0}
-          className={`bg-blue-500 text-white font-bold py-4 rounded text-2xl w-1/6 ${
-            filteredKanjiData.length <= 0 ? "opacity-50" : "hover:bg-blue-700"
-          }`}
+          className={`btn blue w-1/6`}
         >
           初めから
         </button>
@@ -220,13 +218,7 @@ export const TitleView = () => {
             isOnlyWrongs ||
             filteredKanjiData.length <= 0
           }
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/6 ${
-            indexForContinue === 0 ||
-            isOnlyWrongs ||
-            filteredKanjiData.length <= 0
-              ? "opacity-50"
-              : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/6`}
         >
           続きから
         </button>
@@ -237,11 +229,7 @@ export const TitleView = () => {
             setMode("question")
           }}
           disabled={isOnlyWrongs || noStudies.length <= 0}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/6 ${
-            isOnlyWrongs || noStudies.length <= 0
-              ? "opacity-50"
-              : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/6`}
         >
           未学習のみ
         </button>
@@ -257,11 +245,7 @@ export const TitleView = () => {
             setMode("question")
           }}
           disabled={indexForContinue === 0 || filteredKanjiData.length <= 0}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-            indexForContinue === 0 || filteredKanjiData.length <= 0
-              ? "opacity-50"
-              : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/4`}
         >
           選んで始める
         </button>
@@ -286,9 +270,7 @@ export const TitleView = () => {
             setIndex(0)
             setMode("review")
           }}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-            recentWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/4`}
         >
           直前に間違えたところ
         </button>
@@ -299,9 +281,7 @@ export const TitleView = () => {
             setIndex(0)
             setMode("review")
           }}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-            todayWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/4`}
         >
           今日間違えたところ
         </button>
@@ -314,9 +294,7 @@ export const TitleView = () => {
             setIndex(0)
             setMode("review")
           }}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-            yesterdayWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/4`}
         >
           昨日間違えたところ
         </button>
@@ -327,35 +305,31 @@ export const TitleView = () => {
             setIndex(0)
             setMode("review")
           }}
-          className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-            twoDaysAgoWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
-          }`}
+          className={`btn green w-1/4`}
         >
           一昨日間違えたところ
         </button>
       </div>
       <div className="flex justify-center gap-1 mt-4">
         <input
-            className={"text-center text-2xl"}
-            value={daysAgo}
-            type={"number"}
-            min={3}
-            onChange={(e) => {
-              const n = Number(e.target.value)
-              if (isNaN(n) || n < 3) return
-              setDaysAgo(n)
-            }}
+          className={"text-center text-2xl"}
+          value={daysAgo}
+          type={"number"}
+          min={3}
+          onChange={(e) => {
+            const n = Number(e.target.value)
+            if (isNaN(n) || n < 3) return
+            setDaysAgo(n)
+          }}
         />
         <button
-            disabled={daysAgoWrongs.length === 0}
-            onClick={() => {
-              setQuestions(daysAgoWrongs)
-              setIndex(0)
-              setMode("review")
-            }}
-            className={`bg-green-500 text-white font-bold py-4 rounded text-2xl w-1/4 ${
-                daysAgoWrongs.length === 0 ? "opacity-50" : "hover:bg-green-700"
-            }`}
+          disabled={daysAgoWrongs.length === 0}
+          onClick={() => {
+            setQuestions(daysAgoWrongs)
+            setIndex(0)
+            setMode("review")
+          }}
+          className={`btn green w-1/4`}
         >
           日前に間違えた露頃
         </button>

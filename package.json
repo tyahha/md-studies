@@ -1,7 +1,8 @@
 {
   "workspaces": [
     "packages/kanji",
-    "packages/english-words"
+    "packages/english-words",
+    "packages/common"
   ],
   "devDependencies": {
     "eslint-config-prettier": "^9.0.0",
