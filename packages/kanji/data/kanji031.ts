@@ -169,8 +169,8 @@ export const KanjiData31: Kanji[] = [
   },
   {
     id: "31-24",
-    sentence: "洪水量を調べる。",
-    kanji: "洪水",
+    sentence: "降水量を調べる。",
+    kanji: "降水",
     kana: "コウスイ",
     questionType: "write",
   },

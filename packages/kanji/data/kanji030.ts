@@ -148,8 +148,8 @@ export const KanjiData30: Kanji[] = [
   },
   {
     id: "30-21",
-    sentence: "優しい仕事だ。",
-    kanji: "優しい",
+    sentence: "易しい仕事だ。",
+    kanji: "易しい",
     kana: "やさしい",
     questionType: "write",
   },
