@@ -274,7 +274,7 @@ export const KanjiData33: Kanji[] = [
   },
   {
     id: "33-39",
-    sentence: "無実の照明",
+    sentence: "明るい照明",
     kanji: "照明",
     kana: "ショウメイ",
     questionType: "write",
