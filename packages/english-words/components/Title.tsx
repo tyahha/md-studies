@@ -36,14 +36,14 @@ const pickRecentWrongs = (day: dayjs.Dayjs, questionType: QuestionType) => {
   const ret: WordDataType[] = []
   const baseDay = day.format("YYYYMMDD")
   Object.entries(histories).forEach(([id, history]) => {
-    const kanji = WordsData.find((k) => k.id === id)
+    const data = WordsData.find((d) => d.id === id)
     if (
-      kanji &&
+      data &&
       history.length > 0 &&
       !history[history.length - 1].isCorrect &&
       baseDay === dayjs(history[history.length - 1].datetime).format("YYYYMMDD")
     ) {
-      ret.push(kanji)
+      ret.push(data)
     }
   })
   return ret
