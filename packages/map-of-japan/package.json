@@ -1,0 +1,14 @@
+{
+  "name": "map-of-japan",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.69.3"
+  }
+}

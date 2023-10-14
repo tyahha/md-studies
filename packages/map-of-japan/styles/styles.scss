@@ -1,0 +1,133 @@
+* {
+  user-select: none;
+}
+
+input, textarea {
+  user-select: auto;
+}
+
+p {
+  margin: 0;
+}
+
+.map {
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    fill: #1dff00;
+  }
+}
+
+.game-window {
+  background-color: #8ea7e6;
+}
+
+.overlay {
+  background-color: white;
+  opacity: 0.6;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.overlay-content {
+  margin: 8px;
+
+  p {
+    margin: 8px;
+
+    button {
+      margin: 8px;
+    }
+  }
+
+  text-align: center;
+  z-index: 2;
+
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  font-size: 32px;
+
+  .result-point {
+    font-size: 64px;
+  }
+}
+
+.game-state {
+  position: absolute;
+  font-size: 24px;
+  text-align: left;
+
+  .point {
+    padding-left: 2em;
+  }
+
+  .prefecture-question {
+    font-size: 32px;
+    padding-left: 1em;
+  }
+
+  .correct-or-incorrect {
+    font-size: 24px;
+    padding-left: 1em;
+
+    &.correct {
+      color: blue;
+    }
+
+    &.incorrect {
+      color: red;
+    }
+  }
+}
+
+.map-container {
+  text-align: center;
+  position: relative;
+}
+
+@media (orientation: landscape) {
+  // デバイスが横向きの場合の記述
+  .map-container {
+    height: 100vh;
+
+    svg {
+      height: 100%;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  // デバイスが縦向きの場合の記述
+  .map-container {
+    width: 100vw;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  .game-state {
+    position: inherit;
+  }
+}
+
+.map-name-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: auto;
+  width: 50%;
+
+  button {
+    margin: 8px;
+  }
+}
