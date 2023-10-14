@@ -1,13 +1,13 @@
 import { useCallback, useRef, useState } from "react"
-import { japanArea, JapanArea, JapanAreaId } from "../data/japan-area"
-import { playCorrectOrInCorrectSound } from "../data/se"
-import { GameMode, getQuestions, Scene } from "../logic/scene"
-import { MapGame } from "../components/map-game"
-import { AnswerState } from "../logic/answer-state"
-import { TitleOverlay } from "../components/overlay/title-overlay"
-import { RankingSelectOverlay } from "../components/overlay/ranking-select-overlay"
-import { RankingOverlay } from "../components/overlay/ranking-overlay"
-import { ResultOverlay } from "../components/overlay/result-overlay"
+import { japanArea, JapanArea, JapanAreaId } from "@/data/japan-area"
+import { playCorrectOrInCorrectSound } from "@/data/se"
+import { GameMode, getQuestions, Scene } from "@/logic/scene"
+import { MapGame } from "@/components/map-game"
+import { AnswerState } from "@/logic/answer-state"
+import { TitleOverlay } from "@/components/overlay/title-overlay"
+import { RankingSelectOverlay } from "@/components/overlay/ranking-select-overlay"
+import { RankingOverlay } from "@/components/overlay/ranking-overlay"
+import { ResultOverlay } from "@/components/overlay/result-overlay"
 
 const timeLimit = 30 * 1000
 
@@ -29,7 +29,9 @@ export default function Index() {
     return ret
   }
 
-  const [question, setCurrentQuestion] = useState<JapanArea | undefined>(undefined)
+  const [question, setCurrentQuestion] = useState<JapanArea | undefined>(
+    undefined,
+  )
   const startGame = (gameMode: GameMode) => {
     setAnswerState(undefined)
     setPoint(0)
@@ -67,7 +69,7 @@ export default function Index() {
         setCurrentQuestion(getNextQuestion())
       }
     },
-    [question],
+    [getNextQuestion, question],
   )
 
   const showRanking = (rural: GameMode) => {
@@ -77,9 +79,14 @@ export default function Index() {
 
   return (
     <div className={"game-window"}>
-      {scene === Scene.Title && <TitleOverlay onStartGame={startGame} onChangeMode={setScene} />}
+      {scene === Scene.Title && (
+        <TitleOverlay onStartGame={startGame} onChangeMode={setScene} />
+      )}
       {scene === Scene.RankingSelect && (
-        <RankingSelectOverlay onSelectRanking={showRanking} onChangeScene={setScene} />
+        <RankingSelectOverlay
+          onSelectRanking={showRanking}
+          onChangeScene={setScene}
+        />
       )}
       {scene === Scene.RankingView && (
         <RankingOverlay

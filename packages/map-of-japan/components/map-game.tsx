@@ -35,12 +35,13 @@ export const MapGame = ({
         </button>
       )
     })
-  }, [answerState, gameMode])
+  }, [onClickMap, gameMode])
 
   const rural = useMemo(() => getGameModeRural(gameMode), [gameMode])
 
   return scene === Scene.Gaming &&
-    (gameMode === GameMode.PrefectureToCapital || gameMode === GameMode.CaptalToPrefecture) ? (
+    (gameMode === GameMode.PrefectureToCapital ||
+      gameMode === GameMode.CaptalToPrefecture) ? (
     <div className={"map-container"}>
       <Overlay>
         <GameControl

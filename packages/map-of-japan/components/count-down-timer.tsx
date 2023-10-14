@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 
-export const CountDownTimer = ({ time, timeUp }: { time: number; timeUp: () => void }) => {
+export const CountDownTimer = ({
+  time,
+  timeUp,
+}: {
+  time: number
+  timeUp: () => void
+}) => {
   const [prevTime, setPrevTime] = useState(new Date().getTime())
   const [rest, setReset] = useState(time)
   const timer = useRef(0)
@@ -24,7 +30,7 @@ export const CountDownTimer = ({ time, timeUp }: { time: number; timeUp: () => v
         window.clearTimeout(timer.current)
       }
     }
-  }, [time])
+  }, [timeoutFunc, time])
 
   return <p className={"timer"}>{`残り時間：${rest / 1000} 秒`}</p>
 }

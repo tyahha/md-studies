@@ -15,7 +15,7 @@ export const FadeOut: FC<{
         setShow(false)
       }, time)
     }
-  }, [children])
+  }, [show, time, children])
 
   return isShow ? <>{children}</> : <></>
 }
