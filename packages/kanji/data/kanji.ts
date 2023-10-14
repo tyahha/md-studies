@@ -49,6 +49,7 @@ import { KanjiDataB8_2, KanjiDataB8_2Category } from "@/data/kanjiB008_2"
 import { KanjiData33, KanjiData33Category } from "@/data/kanji033"
 import { KanjiData34, KanjiData34Category } from "@/data/kanji034"
 import { KanjiData35, KanjiData35Category } from "@/data/kanji035"
+import { KanjiData36, KanjiData36Category } from "@/data/kanji036"
 
 type QuestionType = "read" | "write"
 
@@ -112,6 +113,7 @@ export const KanjiDataCategories = [
   KanjiData33Category,
   KanjiData34Category,
   KanjiData35Category,
+  KanjiData36Category,
 ]
 
 export const KanjiData: Kanji[] = [
@@ -166,4 +168,5 @@ export const KanjiData: Kanji[] = [
   ...KanjiData33,
   ...KanjiData34,
   ...KanjiData35,
+  ...KanjiData36,
 ]
